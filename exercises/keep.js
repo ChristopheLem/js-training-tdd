@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /*
  * Create a `keepFirst` function that takes a string as parameter
@@ -13,9 +13,10 @@
  */
 
 // Your code:
-
+const keepFirst = (str) => str.substring(0, 2);
 //* Begin of tests
-const assert = require('assert');
+const assert = require("assert");
 
-assert.fail('You must write your own tests');
+assert.strictEqual(typeof keepFirst, "function");
+assert.deepStrictEqual(keepFirst("12345"), "12");
 // End of tests */

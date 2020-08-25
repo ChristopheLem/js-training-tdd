@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /*
  * Create a `multiply` function that takes two number as arguments
@@ -10,17 +10,28 @@
  */
 
 // Your code:
+const multiply = (num, times) => {
+  let sum = 0;
+  if (times > 0 || times < 0) {
+    sum += num;
+    if (num < 0 && times < 0) return -sum + multiply(num, times + 1);
+    else if (num === 0) return 0;
+    else if (num > 0 && times < 0) return -sum + multiply(num, times + 1);
+    return sum + multiply(num, times - 1);
+  }
+  return sum;
+};
 
 //* Begin of tests
-const assert = require('assert');
+const assert = require("assert");
 
-assert.strictEqual(typeof multiply, 'function');
+assert.strictEqual(typeof multiply, "function");
 assert.strictEqual(multiply.length, 2);
-assert.strictEqual(multiply.toString().includes('Math.imul'), false);
-assert.strictEqual(multiply.toString().includes('while'), false);
-assert.strictEqual(multiply.toString().includes('for'), false);
-assert.strictEqual(multiply.toString().includes('*'), false);
-assert.strictEqual(multiply.toString().includes('/'), false);
+assert.strictEqual(multiply.toString().includes("Math.imul"), false);
+assert.strictEqual(multiply.toString().includes("while"), false);
+assert.strictEqual(multiply.toString().includes("for"), false);
+assert.strictEqual(multiply.toString().includes("*"), false);
+assert.strictEqual(multiply.toString().includes("/"), false);
 assert.strictEqual(multiply(34, 78), 2652);
 assert.strictEqual(multiply(123, 0), 0);
 assert.strictEqual(multiply(0, -230), 0);

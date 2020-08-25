@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /*
  * Jaden Smith Case
@@ -11,9 +11,14 @@
  */
 
 // Your code:
-
+const jadenCase = (str) => {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
 //* Begin of tests
-const assert = require('assert');
-
-assert.fail('You must write your own tests');
+const assert = require("assert");
+assert.deepStrictEqual(jadenCase("How are you ?"), "How Are You ?");
 // End of tests */
